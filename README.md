@@ -45,29 +45,37 @@ Pipelines and Purpose
 🔄 Pipeline 1: CSV to Parquet Ingestion
 Purpose: Converts raw medical claim data from CSV format into Parquet format for optimized storage and processing.
 
-📌 Activities:
-1️⃣ Source Dataset: Connects to the CSV file located in the stg/ folder in ADLS
-2️⃣ Copy Data Activity: Reads the CSV and writes it to the preprocess/ folder in Parquet format
-3️⃣ Trigger: Automatically starts when a new CSV file is dropped into the stg/ folder
-4️⃣ Output: A .parquet file with the same name as the input CSV, stored in preprocess/
+📌 **Activities**
+1️⃣ **Source Dataset**: Connects to the CSV file located in the `stg/` folder in ADLS  
+2️⃣ **Copy Data Activity**: Reads the CSV and writes it to the `preprocess/` folder in Parquet format  
+3️⃣ **Trigger**: Automatically starts when a new CSV file is dropped into the `stg/` folder  
+4️⃣ **Output**: A `.parquet` file with the same name as the input CSV, stored in `preprocess/`  
+
 
 ![image](https://github.com/user-attachments/assets/f54d3646-a513-4da9-915d-9b7a09a572cb)
 
 🔄 Pipeline 2: Parquet to Fact/Dimension Tables
 Purpose: Processes structured Parquet files and loads data into final fact and dimension tables, ensuring uniqueness and continuity through surrogate key generation.
 
-📌 Activities:
-1️⃣ Source Dataset: Connects to the Parquet file located in the preprocess/ folder in ADLS
-2️⃣ Lookup Activity: Retrieves the last maximum surrogate key value from each dimension table to maintain continuity
-3️⃣ Derived Column Activity: Generates new surrogate keys starting from the last known value
-4️⃣ Conditional Split (optional): Ensures only new or valid records are processed
-5️⃣ Copy Data Activity: Appends new records to:
+📌 **Activities**
+1️⃣ **Source Dataset**: Connects to the Parquet file located in the `preprocess/` folder in ADLS  
+2️⃣ **Lookup Activity**: Retrieves the last maximum surrogate key value from each dimension table to maintain continuity  
+3️⃣ **Derived Column Activity**: Generates new surrogate keys starting from the last known value  
+4️⃣ **Conditional Split** (optional): Ensures only new or valid records are processed  
+5️⃣ **Copy Data Activity**: Appends new records to the appropriate dimension and fact tables in the `sink/` folder  
 
-dim_beneficiary.csv
-dim_provider.csv
-fact_claim.csv
-6️⃣ Trigger: Automatically starts when a new Parquet file is dropped into the preprocess/ folder
-7️⃣ Output: Updated dimension and fact tables stored in the sink/ folder
+📌 **Activities**
+1️⃣ **Source Dataset**: Connects to the Parquet file located in the `preprocess/` folder in ADLS  
+2️⃣ **Lookup Activity**: Retrieves the last maximum surrogate key value from each dimension table to maintain continuity  
+3️⃣ **Derived Column Activity**: Generates new surrogate keys starting from the last known value  
+4️⃣ **Conditional Split** (optional): Ensures only new or valid records are processed  
+5️⃣ **Copy Data Activity**: Appends new records to the appropriate tables:
+   - `dim_beneficiary.csv`  
+   - `dim_provider.csv`  
+   - `fact_claim.csv` in the `sink/` folder  
+6️⃣ **Trigger**: Automatically starts when a new Parquet file is dropped into the `preprocess/` folder  
+7️⃣ **Output**: Updated dimension and fact tables stored in the `sink/` folder  
+
 
 Dataflow 
 ![image](https://github.com/user-attachments/assets/d70c42be-01ef-4506-bb86-99162b0328d6)
@@ -78,20 +86,21 @@ Pipeline-2
 🔄 Pipeline 3: Data Archiving 
 Purpose: This pipeline ensures proper data lifecycle management by archiving files older than 1 day and cleaning up the original folders. 
 
-📌 Activities
-The pipeline starts by retrieving metadata from the stg/, preprocess/, and sink/ folders.
-It filters files that are older than 1 day.
-These files are copied to their respective archive folders:
-stg/archive/
-preprocess/archive/
-sink/archive/
-After successful copying, the same files are deleted from the original folders to free up space and maintain folder hygiene.
-This pipeline is scheduled to run periodically (e.g., daily or hourly)
+📌 **Activities**
+- The pipeline starts by retrieving metadata from the `stg/`, `preprocess/`, and `sink/` folders  
+- It filters files that are **older than 1 day**  
+- These files are then copied to their respective archive folders:  
+  - `stg/archive/`  
+  - `preprocess/archive/`  
+  - `sink/archive/`  
+- After successful copying, the same files are deleted from the original folders to free up space and maintain folder hygiene  
+- This pipeline is scheduled to run periodically (e.g., daily or hourly)  
 
-📈 Data Flow Summary
-Source Folders: stg/, preprocess/, sink/
-Archive Folders: stg/archive/, preprocess/archive/, sink/archive/
-Archiving Rule: Copy files older than 1 day to archive, then delete from original folders
+📈 **Data Flow Summary**
+- **Source Folders**: `stg/`, `preprocess/`, `sink/`  
+- **Archive Folders**: `stg/archive/`, `preprocess/archive/`, `sink/archive/`  
+- **Archiving Rule**: Copy files older than 1 day to archive, then delete from original folders  
+
 
 ![image](https://github.com/user-attachments/assets/3976e0ad-3725-488e-b0e0-3b6d4e0cd2cc)
 
@@ -113,6 +122,7 @@ Linkedservices
 
 
 Pipelines
+
 ![image](https://github.com/user-attachments/assets/6c2e85fb-2a3b-4bb8-883a-735d330be539)
 
 
