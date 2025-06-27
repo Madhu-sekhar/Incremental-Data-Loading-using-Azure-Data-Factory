@@ -112,5 +112,11 @@ Pipelines
 ![image](https://github.com/user-attachments/assets/6c2e85fb-2a3b-4bb8-883a-735d330be539)
 
 
+triggers
+
+![image](https://github.com/user-attachments/assets/6aba5e13-79cc-481c-a943-a338b11405bf)
+
+
+
 
 
