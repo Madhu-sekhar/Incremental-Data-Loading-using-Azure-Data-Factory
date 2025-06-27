@@ -36,10 +36,16 @@ sink/archive/         # Archived final tables
 ![image](https://github.com/user-attachments/assets/6bdea213-7e2f-42b0-81e8-52da932cd974)
 
 
-📑 ADF Pipelines
-Pipelines and Purpose
-1️⃣ CSV to Parquet Ingestion	Converts raw CSV files into Parquet format and stores them in ADLS
-2️⃣ Parquet to Fact/Dim Tables	Loads Parquet data into structured fact and dimension tables
+📑 **ADF Pipelines**
+
+**Pipelines and Purpose**
+
+1️⃣ **CSV to Parquet Ingestion**  
+  Converts raw CSV files into Parquet format and stores them in ADLS
+
+2️⃣ **Parquet to Fact/Dim Tables**  
+  Loads Parquet data into structured fact and dimension tables
+
 
 
 🔄 Pipeline 1: CSV to Parquet Ingestion
@@ -54,8 +60,11 @@ Purpose: Converts raw medical claim data from CSV format into Parquet format for
 
 ![image](https://github.com/user-attachments/assets/f54d3646-a513-4da9-915d-9b7a09a572cb)
 
-🔄 Pipeline 2: Parquet to Fact/Dimension Tables
-Purpose: Processes structured Parquet files and loads data into final fact and dimension tables, ensuring uniqueness and continuity through surrogate key generation.
+🔄 **Pipeline 2: Parquet to Fact/Dimension Tables**
+
+**Purpose:**  
+Processes structured Parquet files and loads data into final fact and dimension tables, ensuring uniqueness and continuity through surrogate key generation.
+
 
 
 📌 **Activities**
