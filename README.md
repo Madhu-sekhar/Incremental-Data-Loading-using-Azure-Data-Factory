@@ -5,12 +5,13 @@ This project demonstrates a two-stage incremental data loading process using Azu
 It is designed to ingest and transform a large-scale synthetic medical claims dataset in hourly intervals, simulating real-time data flow. 
 The pipeline ensures efficient data processing, structured storage, and lifecycle management of ingested data.
 
-🎯 Project Goals
-✔ Ingest medical claim data from CSV files into ADLS in hourly intervals
-✔ Convert raw CSV files into Parquet format using Azure Data Factory
-✔ Load and append unique records into dimension and fact tables with surrogate keys
-✔ Implement incremental data loading to avoid reprocessing previously ingested data
-✔ Archive processed files after 1 day and purge them after 2 days to manage storage
+🎯 **Project Goals**
+- [x] Ingest medical claim data from CSV files into ADLS in hourly intervals  
+- [x] Convert raw CSV files into Parquet format using Azure Data Factory  
+- [x] Load and append unique records into dimension and fact tables with surrogate keys  
+- [x] Implement incremental data loading to avoid reprocessing previously ingested data  
+- [x] Archive processed files after 1 day and purge them after 2 days to manage storage  
+
 
 Resources
 ![image](https://github.com/user-attachments/assets/5208a15f-59f9-47e0-b824-c345bea7c85f)
@@ -18,13 +19,16 @@ Resources
 This project is built around a modular and automated data pipeline architecture using Azure Data Factory (ADF) and Azure Data Lake Storage (ADLS). 
 It simulates incremental data loading by processing medical claim data in hourly intervals.
 
-📂 Folder Structure
-stg/                  # Raw CSV subsets
-preprocess/           # Parquet files
-sink/                 # Final fact/dimension tables
-stg/archive/          # Archived raw data
-preprocess/archive/   # Archived parquet data
-sink/archive/         # Archived final tables
+📂 **Folder Structure**
+```
+stg/                  # Raw CSV subsets  
+preprocess/           # Parquet files  
+sink/                 # Final fact/dimension tables  
+stg/archive/          # Archived raw data  
+preprocess/archive/   # Archived parquet data  
+sink/archive/         # Archived final tables  
+```
+
 
 ![image](https://github.com/user-attachments/assets/1bb31990-1bed-41e0-b199-184150f2278b)
 
