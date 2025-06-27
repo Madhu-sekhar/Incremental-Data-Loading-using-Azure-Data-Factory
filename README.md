@@ -125,45 +125,62 @@ triggers
 ![image](https://github.com/user-attachments/assets/6aba5e13-79cc-481c-a943-a338b11405bf)
 
 
-📘 Project Summary
-This project demonstrates the design and implementation of a scalable, automated data ingestion and transformation pipeline using a synthetic medical claims dataset of 1 million records. The objective was to simulate a real-world incremental data load scenario and build a robust ETL system using PySpark and Azure Data Lake Storage (ADLS).
+## 📘 Project Summary
 
-🔧 What I Built
-Data Preparation
+This project demonstrates the design and implementation of a **scalable, automated data ingestion and transformation pipeline** using a synthetic medical claims dataset of 1 million records. The objective was to simulate a real-world incremental data load scenario and build a robust ETL system using PySpark and Azure Data Lake Storage (ADLS).
 
-Downloaded and explored the Medical Claims Synthetic Dataset
-Split the dataset into 6 equal subsets to simulate hourly data arrival
-Added an md5_hash column to each record for uniqueness tracking
-Pipeline 1: CSV to Parquet Conversion
+---
 
-Triggered when a new CSV file is uploaded to the stg/ folder in ADLS
-Converted CSV to Parquet format using PySpark
-Stored the output in the preprocess/ folder
-Pipeline 2: Parquet to Fact & Dimension Tables
+### 🔧 What I Built
 
-Triggered when a new Parquet file appears in the preprocess/ folder
-Read the Parquet file and generated surrogate keys for dimension modeling
-Transformed and appended data to:
-dim_beneficiary.csv
-dim_provider.csv
-fact_claim.csv
-Stored the final tables in the sink/ folder
-Pipeline 3: Data Lifecycle Management
+1. **Data Preparation**  
+   - Downloaded and explored the Medical Claims Synthetic Dataset  
+   - Split the dataset into 6 equal subsets to simulate hourly data arrival  
+   - Added an `md5_hash` column to each record for uniqueness tracking
 
-Implemented Storage Lifecycle Management policies in ADLS
-Automatically moved processed files to their respective archive/ folders after 1 day
-Purged archived files after 2 days to manage storage efficiently
-Automation & Scheduling
+2. **Pipeline 1: CSV to Parquet Conversion**  
+   - Triggered when a new CSV file is uploaded to the `stg/` folder in ADLS  
+   - Converted CSV to Parquet format using PySpark  
+   - Stored the output in the `preprocess/` folder
 
-All pipelines were scheduled to run hourly, simulating real-time data ingestion
-Dependencies were managed to ensure sequential execution (Pipeline 2 waits for Pipeline 1)
-🧰 Tools & Technologies Used
-PySpark – Distributed data processing
-Pandas – Initial data manipulation and hashing
-Azure Data Lake Storage (ADLS) – Scalable cloud storage
-Surrogate Key Logic – For dimension table modeling
-Storage Lifecycle Management – For automated archiving and purging
-Automation & Scheduling – Simulated using time-based triggers
+3. **Pipeline 2: Parquet to Fact & Dimension Tables**  
+   - Triggered when a new Parquet file appears in the `preprocess/` folder  
+   - Read the Parquet file and generated **surrogate keys** for dimension modeling  
+   - Transformed and appended data to:
+     - `dim_beneficiary.csv`
+     - `dim_provider.csv`
+     - `fact_claim.csv`  
+   - Stored the final tables in the `sink/` folder
+
+4. **Pipeline 3: Data Lifecycle Management**  
+   - Implemented **Storage Lifecycle Management** policies in ADLS  
+   - Automatically moved processed files to their respective `archive/` folders after 1 day  
+   - Purged archived files after 2 days to manage storage efficiently by storage life cycle managment
+
+5. **Automation & Scheduling**  
+   - All pipelines were scheduled to run **hourly**, simulating real-time data ingestion  
+   - Dependencies were managed to ensure sequential execution (Pipeline 2 waits for Pipeline 1)
+
+---
+
+### 🧰 Tools & Technologies Used
+
+- **Pythoon** – for data split
+- **Pandas** – Initial data manipulation and hashing  
+- **Azure Data Lake Storage (ADLS)** – Scalable cloud storage    
+- **Storage Lifecycle Management** – For automated archiving and purging  
+- **Automation & Scheduling** – Simulated using time-based triggers
+
+---
+
+### ⚠️ Note
+
+If you're using the provided code or JSON configurations, please ensure that:
+- **Folder names** such as `stg/`, `preprocess/`, `sink/`, and their respective `archive/` folders are **exactly as defined** in the pipeline logic.
+- **Dataset file names** (e.g., `subset_1.csv`, `subset_2.csv`, etc.) match the expected input references.
+- Any **path or schema references** in the code must be updated if you modify the folder structure or filenames and  mak sure the all the names are smae that are in the json files like pipeline name and datast anmes etc.
+
+
 
 
 
