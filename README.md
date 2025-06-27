@@ -57,12 +57,6 @@ Purpose: Converts raw medical claim data from CSV format into Parquet format for
 🔄 Pipeline 2: Parquet to Fact/Dimension Tables
 Purpose: Processes structured Parquet files and loads data into final fact and dimension tables, ensuring uniqueness and continuity through surrogate key generation.
 
-📌 **Activities**
-1️⃣ **Source Dataset**: Connects to the Parquet file located in the `preprocess/` folder in ADLS  
-2️⃣ **Lookup Activity**: Retrieves the last maximum surrogate key value from each dimension table to maintain continuity  
-3️⃣ **Derived Column Activity**: Generates new surrogate keys starting from the last known value  
-4️⃣ **Conditional Split** (optional): Ensures only new or valid records are processed  
-5️⃣ **Copy Data Activity**: Appends new records to the appropriate dimension and fact tables in the `sink/` folder  
 
 📌 **Activities**
 1️⃣ **Source Dataset**: Connects to the Parquet file located in the `preprocess/` folder in ADLS  
