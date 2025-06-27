@@ -187,7 +187,8 @@ This project demonstrates the design and implementation of a **scalable, automat
 If you're using the provided code or JSON configurations, please ensure that:
 - **Folder names** such as `stg/`, `preprocess/`, `sink/`, and their respective `archive/` folders are **exactly as defined** in the pipeline logic.
 - **Dataset file names** (e.g., `subset_1.csv`, `subset_2.csv`, etc.) match the expected input references.
-- Any **path or schema references** in the code must be updated if you modify the folder structure or filenames and  mak sure the all the names are same that are in the json files like pipeline name and datase names etc.
+- Any **path or schema references** in the code must be updated if you modify the folder structure or filenames and  mak sure the all the names are same that are in the json files like pipeline name and dataset
+ names etc.
 
 
 
