@@ -1,0 +1,37 @@
+{
+    "name": "ds_sink_p3_archive",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_sink_adls",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "DelimitedText",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "folderPath": "sink/archive",
+                "fileSystem": "pjt"
+            },
+            "columnDelimiter": ",",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+        },
+        "schema": [
+            {
+                "name": "PRF_PHYSN_NPI_1",
+                "type": "String"
+            },
+            {
+                "name": "HCPCS_CD_1",
+                "type": "String"
+            },
+            {
+                "name": "provider_sk",
+                "type": "String"
+            }
+        ]
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
