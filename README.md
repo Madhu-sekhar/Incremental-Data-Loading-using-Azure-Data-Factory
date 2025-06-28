@@ -33,7 +33,9 @@ sink/archive/         # Archived final tables
 ![image](https://github.com/user-attachments/assets/1bb31990-1bed-41e0-b199-184150f2278b)
 
 subset files are uploded in the stg folder
-![image](https://github.com/user-attachments/assets/6bdea213-7e2f-42b0-81e8-52da932cd974)
+
+![image](https://github.com/user-attachments/assets/d293238c-0d79-4a17-b115-2a4558e03fd4)
+
 
 
 📑 **ADF Pipelines**
@@ -127,7 +129,8 @@ Purpose: This pipeline ensures proper data lifecycle management by archiving fil
 
 Datasets
 
-![image](https://github.com/user-attachments/assets/d187fed2-e056-424b-a70e-b83415df7e6c)
+![image](https://github.com/user-attachments/assets/4112fd98-b134-4e14-bb3c-c748a714097e)
+
 
 Linkedservices
 
