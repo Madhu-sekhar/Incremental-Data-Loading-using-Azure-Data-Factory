@@ -32,7 +32,7 @@ sink/archive/         # Archived final tables
 
 ![image](https://github.com/user-attachments/assets/1bb31990-1bed-41e0-b199-184150f2278b)
 
-->>subset files are uploded in the stg folder
+subset files are uploded in the stg folder
 ![image](https://github.com/user-attachments/assets/6bdea213-7e2f-42b0-81e8-52da932cd974)
 
 
@@ -60,6 +60,12 @@ Purpose: Converts raw medical claim data from CSV format into Parquet format for
 
 ![image](https://github.com/user-attachments/assets/f54d3646-a513-4da9-915d-9b7a09a572cb)
 
+Csv-parquet (sample images)
+
+![image](https://github.com/user-attachments/assets/e6393af6-4e6b-4433-969c-6ebdf6801a61)
+
+
+
 🔄 **Pipeline 2: Parquet to Fact/Dimension Tables**
 
 **Purpose:**  
@@ -85,6 +91,11 @@ Dataflow
 
 Pipeline-2
 ![image](https://github.com/user-attachments/assets/734d7fdc-c91d-4f04-92a8-376c9a2a36c7)
+
+parquet-dimand facts
+
+![image](https://github.com/user-attachments/assets/ae0a72b0-4458-4fcd-ab20-e6d8f80bf133)
+
 
 🔄 Pipeline 3: Data Archiving 
 Purpose: This pipeline ensures proper data lifecycle management by archiving files older than 1 day and cleaning up the original folders. 
