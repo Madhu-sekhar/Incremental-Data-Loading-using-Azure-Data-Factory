@@ -1,0 +1,21 @@
+{
+    "name": "ds_preprocess_parquet_archive",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_parquet_preprocess",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "folderPath": "preprocess/archive",
+                "fileSystem": "pjt"
+            },
+            "compressionCodec": "snappy"
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
